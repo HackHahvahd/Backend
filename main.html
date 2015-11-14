@@ -11,8 +11,20 @@
 
 	<form id="sub" method="POST" enctype="multipart/form-data" action="upload.php">
 		<input type="file" name="myfile">
-		<input type="submit" name="submit" value="Submit">
+		<input type="submit" id="UploadButton" name="submit" value="Submit">
 	</form>
+
+	<script src="/socket.io/socket.io.js"></script>
+
+	<script>
+		windows.addEventListener("load",Ready);
+		//when windows loads
+		function Ready(){
+			if(windows.File && window.FileReader){
+				document.getElementById('UploadButton').addEventListener("")
+			}
+		}
+	</script>
 
 </body>
 </html>
@@ -26,6 +38,6 @@
 }
 #sub {
 	float: left;
-    width: 200px;   
+    width: 200px;
     padding:50px;
 }
