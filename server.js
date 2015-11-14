@@ -7,7 +7,6 @@ var exec = require('child_process').exec;
 var util = require('util');
 var azure = require('azure-storage');
 
-
 app.get('/main',function(req,res){
 res.sendFile(__dirname + '/main.html');
 });
@@ -72,7 +71,7 @@ app.get('/submit/nonprofit', function(req, res){
 
 //uploads (and replaces if there is existing?) pdf associated with a given user
 var uploadPdf = function(user, pdfpath){
-  
+
 
 }
 
@@ -84,10 +83,11 @@ var uploadImage = function(user, pdfpath){
 
 
 var server = app.listen(3000, function () {
-var host = server.address().address;
-var port = server.address().port;
+  var host = server.address().address;
+  var port = server.address().port;
 
   console.log('Example app listening at http://%s:%s', host, port);
+
 });
 
 io.sockets.on('connection', function(socket){
