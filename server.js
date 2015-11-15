@@ -1,18 +1,14 @@
 var express = require('express');
 var app = express();
-var spawn = require('child_process').spawn;
+
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var fs = require('fs');
 var multer = require('multer');
 var done = false;
-//var sys = require('sys')
-var exec = require('child_process').exec;
-var child;
-var path = require('path');
 
 //configure express to use body-parser as middle-ware
-//the
+
 
 //var io = require('socket.io').listen(app);
 var fs = require('fs');
@@ -21,16 +17,13 @@ var util = require('util');
 var querystring = require('querystring');
 var azure = require('azure-storage');
 
-// app.use(express.static(__dirname + '/public'));
-
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/submit',function(req,res){
 res.sendFile(__dirname + '/submit.html');
 });
 
 app.get('/register',function(req,res){
-  res.sendFile(__dirname + '/register.html');
+  res.sendFile(__dirname + '/interface/register.html');
 });
 
 //multer stuff
@@ -44,19 +37,17 @@ onFileUploadStart: function (file) {
 onFileUploadComplete: function (file) {
   console.log(file.fieldname + ' uploaded to  ' + file.path)
   done=true;
-  var cmd = "java -cp .:pdfbox-1.8.10.jar:commons-logging-1.2.jar:fontbox-1.8.10.jar ReadText " + file.path + " test.txt"
-  child = exec(cmd, function (error, stdout, stderr) {
-  done=true;
-  console.log('stdout: ' + stdout);
-  console.log('stderr: ' + stderr);
-  if (error !== null) {
-    console.log('exec error: ' + error);
-  }
-});
+
+  io.emit('processing-pdf');
+  //run alans pdf PROGRAM
+
+  //run alans nlp PROGRAM
+  //get nonprofits from azure database
+
+  //return data to browser
+  socket.emit('results', data);
 }
 }));
-
-
 
 app.post('/api/photo',function(req,res){
   if(done==true){
@@ -122,9 +113,6 @@ app.get('/submit/nonprofit', function(req, res){
   req.end();
 });
 
-// app.get('/*', function(req,res){
-//  res.sendFile(req.params[0]);
-// });
 
 var getNonprofits = function(callback){
 
@@ -216,12 +204,12 @@ io.on('connection',function(socket){
 
 });
 
+
+
 var server = app.listen(3000, function () {
   var host = server.address().address;
   var port = server.address().port;
 
   console.log('Example app listening at http://%s:%s', host, port);
-  // var child = spawn('java', ['TestJ', '/upload/v11.pdf', 'test.txt']);
-  // executes `pwd`
 
 });
