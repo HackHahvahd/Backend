@@ -25,10 +25,10 @@ public class ReadText {
             cosDoc = parser.getDocument();
             pdfStripper = new PDFTextStripper();
             pdDoc = new PDDocument(cosDoc);
-            
+
             String parsedText = pdfStripper.getText(pdDoc);
             System.out.println(parsedText);
-            
+
             FileWriter  writer = new FileWriter(args[1]);
             PrintWriter outText = new PrintWriter(writer);
             outText.println(parsedText);
@@ -39,7 +39,7 @@ public class ReadText {
         } finally {
             cosDoc.close();
         }
-		
+
 	}
 
 }
