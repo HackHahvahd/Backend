@@ -21,10 +21,13 @@
           <h1>&lt;/MissionCode&gt;</h1>
         </div>
         <h2>Connecting Students with Nonprofits</h2>
-            <form action="./upload.php" method="post" enctype="multipart/form-data"> 
-                 <input type="file" name="myFile">
-                 <br>
-                 <input type="submit" value="Upload">
+            <form id        =  "uploadForm"
+             enctype   =  "multipart/form-data"
+             action    =  "/api/photo"
+             method    =  "post"
+        >
+        <input type="file" name="userPhoto" />
+        <input type="submit" value="Upload Image" name="submit">
             </form>
       </div>
     </div>
