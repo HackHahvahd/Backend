@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var multer  = require('multer');
+var done=false;
 
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
@@ -15,7 +17,6 @@ var exec = require('child_process').exec;
 var util = require('util');
 var querystring = require('querystring');
 var azure = require('azure-storage');
-
 
 app.get('/main',function(req,res){
 res.sendFile(__dirname + '/main.html');
@@ -39,6 +40,43 @@ app.get('/submit/nonprofit', function(req, res){
     keywords: keywords,
     blurb: blurb,
     thumbnail_path: null //TODO
+app.get('/submit',function(req,res){
+res.sendFile(__dirname + '/submit.html');
+});
+
+app.get('/register',function(req,res){
+  res.sendFile(__dirname + '/interface/register.html');
+});
+
+//multer stuff
+app.use(multer({ dest: './upload/',
+ rename: function (fieldname, filename) {
+    return filename+Date.now();
+  },
+onFileUploadStart: function (file) {
+  console.log(file.originalname + ' is starting ...')
+},
+onFileUploadComplete: function (file) {
+  console.log(file.fieldname + ' uploaded to  ' + file.path)
+  done=true;
+}
+}));
+
+app.post('/api/photo',function(req,res){
+  if(done==true){
+    console.log(req.files);
+    res.end("File uploaded.");
+  }
+});
+
+
+var pushNewUserRegistration = function(username, password, email){
+
+
+  var entry = {
+    id: username,
+    password: password,
+    email: email
 
   };
 
@@ -73,6 +111,7 @@ app.get('/submit/nonprofit', function(req, res){
       res.on('end', function () {
           var resultObject = JSON.parse(responseString);
           console.log(resultObject.toString());
+
       });
   });
 
@@ -82,6 +121,7 @@ app.get('/submit/nonprofit', function(req, res){
 
   req.write(userString);
   req.end();
+
 });
 
 
@@ -134,7 +174,6 @@ var getNonprofits = function(callback){
     req.end();
 
 }
-
 //uploads (and replaces if there is existing?) pdf associated with a given user
 var uploadPdf = function(user, pdfpath){
 
@@ -148,6 +187,7 @@ var uploadImage = function(user, pdfpath){
 }
 
 io.on('connection',function(socket){
+
   console.log('a user connected');
   socket.on('disconnect',function(){
     console.log('a user disconnected');
@@ -162,10 +202,14 @@ io.on('connection',function(socket){
       //TODO: RUN ALAN'S PDF READER PROGRAM ON THIS PDF filepath
       //TODO: RUN ALAN'S NLP ON THE PDF text
       //get company data from database
+<<<<<<< HEAD
       getNonprofits(function(responseString){
         var parsed = JSON.parse(responseString);
 
       })
+=======
+
+>>>>>>> 26cdea2b50dcfb2fe9f0cbb06d7ba4bf578acbcd
 
     })//doesn't handle duplicate filepaths
 
@@ -173,6 +217,7 @@ io.on('connection',function(socket){
 
 });
 
+<<<<<<< HEAD
 
 
 var server = app.listen(3000, function () {
@@ -182,3 +227,12 @@ var server = app.listen(3000, function () {
 
   console.log('Example app listening at http://%s:%s', host, port);
 });
+=======
+var server = app.listen(3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%s', host, port);
+
+});
+>>>>>>> 26cdea2b50dcfb2fe9f0cbb06d7ba4bf578acbcd
