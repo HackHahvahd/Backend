@@ -35,6 +35,18 @@
     <div class="footer">
       <p>MissionCode</p>
     </div>
+    <script src="socket.io.js"></script>
+    <script>
+      var socket = io();
+
+      socket.on('processing pdf', function(){
+
+      });
+
+      socket.on('results', function(data){
+        console.log("Result data:"+data);
+      })
+    </script>
+
   </body>
 </html>
-

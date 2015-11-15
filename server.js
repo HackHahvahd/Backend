@@ -37,6 +37,13 @@ onFileUploadStart: function (file) {
 onFileUploadComplete: function (file) {
   console.log(file.fieldname + ' uploaded to  ' + file.path)
   done=true;
+
+  //run alans pdf PROGRAM
+  //run alans nlp PROGRAM
+  //get nonprofits from azure database
+
+  //return data to browser
+  socket.emit('results', data);
 }
 }));
 
