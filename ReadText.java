@@ -18,7 +18,7 @@ public class ReadText {
 		PDFTextStripper pdfStripper = null;
         PDDocument pdDoc = null;
         COSDocument cosDoc = null;
-        File file = new File("C:\\Users\\Alan\\Documents\\CHENG_ALAN_RESUME.pdf");
+        File file = new File(args[0]);
         try {
             PDFParser parser = new PDFParser(new FileInputStream(file));
             parser.parse();
@@ -29,7 +29,7 @@ public class ReadText {
             String parsedText = pdfStripper.getText(pdDoc);
             System.out.println(parsedText);
             
-            FileWriter  writer = new FileWriter("C:\\Users\\Alan\\Documents\\ResumeText.txt");
+            FileWriter  writer = new FileWriter(args[1]);
             PrintWriter outText = new PrintWriter(writer);
             outText.println(parsedText);
             outText.close();
