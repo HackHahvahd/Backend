@@ -11,7 +11,7 @@
       <ul class="container">
         <li><a href="./index.html">Home</a></li>
         <li><a href="./register.html">Register</a></li>
-        <li><a href="./index.html">Login</a></li>
+        <li><a href="./submit.html">Submit</a></li>
       </ul>
     </div>
 
@@ -21,7 +21,11 @@
           <h1>&lt;/MissionCode&gt;</h1>
         </div>
         <h2>Connecting Students with Nonprofits</h2>
-        <a class="btn" href='./about.html'>Learn More</a>
+            <form action="./upload.php" method="post" enctype="multipart/form-data"> 
+                 <input type="file" name="myFile">
+                 <br>
+                 <input type="submit" value="Upload">
+            </form>
       </div>
     </div>
 
@@ -30,3 +34,4 @@
     </div>
   </body>
 </html>
+
