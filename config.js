@@ -3,6 +3,6 @@
 
 module.exports = {
     mobileservices: 'missioncode',
-    table: 'item',
+    table: 'nonprofits',
     appkey: "pkAtlCtsPrbpndjtHmmqAZhWvFVJad79"
 }

@@ -1,11 +1,13 @@
 var express = require('express');
-var bodyP\parser = require('body-parser');
 var app = express();
 
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var fs = require('fs');
+
+
 //configure express to use body-parser as middle-ware
-app.use(express.bodyparser());
-app.use(bodyparser.urlencoded({extended:false}));
-app.use(bodyparser.json());
+
 
 //var io = require('socket.io').listen(app);
 var fs = require('fs');
@@ -24,84 +26,6 @@ app.get('/register',function(req,res){
 });
 
 
-//handle user info submission
-app.post('/register/user', function(req, res){
-  console.log("Got user registration!");
-  //console.log(req);
-  console.log('Username: ' + req.body.user);
-  console.log('Password: ' + req.body.pass);
-  var body = "";
-  req.on('data',function(chunk){
-    body += chunk;
-    console.log(chunk);
-  });
-
-  req.on('end', function() {
-      var decodedBody = querystring.parse(body);
-
-      console.log(decodedBody);
-      var json = JSON.parse(body);
-      console.log(json.user);
-      console.log(decodedBody.pass);
-      console.log(decodedBody.email);
-       // empty 200 OK response for now
-       res.writeHead(200, "OK", {'Content-Type': 'text/html'});
-       res.end();
-  });
-
-
-});
-
-var pushNewUserRegistration = function(username, password, email){
-
-
-  var entry = {
-    id: username,
-    password: password,
-    email: email
-
-  };
-
-  var entryString = JSON.stringify(entry);
-
-  var headers = {
-      'Accept': "application/json",
-      'Content-Type': 'application/json',
-      'Content-Length': entryString.length,
-      'X-ZUMO-APPLICATION': config.appkey
-  };
-
-  var options = {
-    host: config.mobileservices + '.azure-mobile.net',
-    port: 443,
-    path: '/tables/'+config.table,
-    method: 'POST',
-    headers: headers
-  };
-
-  // Setup the request.  The options parameter is
-  // the object we defined above.
-  var req = https.request(options, function (res) {
-      res.setEncoding('utf-8');
-
-      var responseString = '';
-
-      res.on('data', function (data) {
-          responseString += data;
-      });
-
-      res.on('end', function () {
-          var resultObject = JSON.parse(responseString);
-      });
-  });
-
-  req.on('error', function (e) {
-      // TODO: handle error.
-  });
-
-  req.write(userString);
-  req.end();
-}
 
 //handle nonprofit info submission
 app.get('/submit/nonprofit', function(req, res){
@@ -148,6 +72,7 @@ app.get('/submit/nonprofit', function(req, res){
 
       res.on('end', function () {
           var resultObject = JSON.parse(responseString);
+          console.log(resultObject.toString());
       });
   });
 
@@ -160,6 +85,56 @@ app.get('/submit/nonprofit', function(req, res){
 });
 
 
+var getNonprofits = function(callback){
+
+    var entry = {
+      id: nonprofitName,
+      keywords: keywords,
+      blurb: blurb,
+      thumbnail_path: null //TODO
+
+    };
+
+    var entryString = JSON.stringify(entry);
+
+    var headers = {
+        'Accept': "application/json",
+        'Content-Type': 'application/json',
+        'Content-Length': entryString.length,
+        'X-ZUMO-APPLICATION': config.appkey
+    };
+
+    var options = {
+      host: config.mobileservices + '.azure-mobile.net',
+      port: 443,
+      path: '/tables/'+config.table,
+      method: 'GET',
+      headers: headers
+    };
+
+    // Setup the request.  The options parameter is
+    // the object we defined above.
+    var req = https.request(options, function (res) {
+        res.setEncoding('utf-8');
+
+        var responseString = '';
+
+        res.on('data', function (data) {
+            responseString += data;
+        });
+
+        res.on('end', callback(responseString));
+    });
+
+    req.on('error', function (e) {
+        // TODO: handle error.
+    });
+
+    req.write(userString);
+    req.end();
+
+}
+
 //uploads (and replaces if there is existing?) pdf associated with a given user
 var uploadPdf = function(user, pdfpath){
 
@@ -171,6 +146,33 @@ var uploadImage = function(user, pdfpath){
 
 
 }
+
+io.on('connection',function(socket){
+  console.log('a user connected');
+  socket.on('disconnect',function(){
+    console.log('a user disconnected');
+
+  });
+
+  socket.on('pdf-uploaded', function(data){
+    fs.readFile(_dirname+"/"+data.filepath, function(err, data){
+      if (err){
+        throw err;
+      }
+      //TODO: RUN ALAN'S PDF READER PROGRAM ON THIS PDF filepath
+      //TODO: RUN ALAN'S NLP ON THE PDF text
+      //get company data from database
+      getNonprofits(function(responseString){
+        var parsed = JSON.parse(responseString);
+        
+      })
+
+    })//doesn't handle duplicate filepaths
+
+  })
+
+});
+
 
 
 var server = app.listen(3000, function () {
