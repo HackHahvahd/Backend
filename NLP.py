@@ -58,9 +58,10 @@ for k in range(len(json_data)):
 json_out = [x for (y,x) in sorted(zip(sim,json_data),reverse = True)]
 
 f = open('list.html','w')
-message = """<html><head></head><body><ul>"""
+message = """<!doctype html><html><head></head><body style="background: url(http://www.fabuloussavers.com/new_wallpaper/World_Humanitarian_Day2013_freecomputerdesktopwallpaper_1920.jpg) no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">"""
+message = message + """<div style="border: 5px solid black; border-radius: 10px; padding: 30px; margin: auto; width: 60%; text-align: center; background-color: white;"><ul>"""
 for x in range(len(json_out)):
-    message = message + "<li>" + str(json_out[x]["id"]) + " " + str(json_out[x]["keywords"]) + " " + str(json_out[x]["blurb"]) + " " + str(json_out[x]["thumbnail_path"]) + "</li>"
-message = message + "</ul>"
+    message = message + "<li>Name: " + str(json_out[x]["id"]) + "<br> Keywords: " + str(json_out[x]["keywords"]) + "<br> Description: " + str(json_out[x]["blurb"]) + "</liv>" # + str(json_out[x]["thumbnail_path"]) + "</li>"
+message = message + "</ul></div></body></html>"
 f.write(message)
 f.close()

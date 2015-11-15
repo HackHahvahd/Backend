@@ -90,8 +90,10 @@ onFileUploadComplete: function (file) {
 
 app.post('/api/photo',function(req,res){
   if(done==true){
-    console.console.log("should be done");
+    console.log("should be done");
     console.log(req.files);
+    var stats = fs.statSync("list.html")
+    console.log(stats)
     res.sendFile(__dirname + '/list.html');
   }
 });
