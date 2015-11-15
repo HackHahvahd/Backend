@@ -27,7 +27,7 @@
              method    =  "post"
         >
         <input type="file" name="userPhoto" />
-        <input type="submit" value="Upload Image" name="submit">
+        <input type="submit" value="Upload" name="submit">
             </form>
       </div>
     </div>
@@ -44,6 +44,7 @@
       });
 
       socket.on('results', function(data){
+
         console.log("Result data:"+data);
       })
     </script>
