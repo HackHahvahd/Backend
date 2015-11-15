@@ -1,0 +1,125 @@
+
+TABLE OF CONTENTS
+1. GENERAL INFO
+2. SCHEDULE
+3. MAP
+4. RULES
+5. TALKS
+6. API DIRECTORY
+IMPORTANT INFORMATION
+HARVARD POLICE: 617.495.1212
+CAMBRIDGE POLICE: 617.349.3300
+WIFI: Harvard University (register as Guest)
+GENERAL INFORMATION
+We’re looking for projects that bring the most 
+creative solutions to the world’s interdisciplin-
+ary problems. We’ll be looking at your hack's 
+originality (how do you solve the problem in an 
+innovative, novel way?), technical difficulty 
+(what technical challenges did you have to 
+overcome?), user experience (how smooth is 
+the experience for the user using your hack?), 
+and utility (how useful is your hack to the 
+world?). 
+Bring your best to the table and we’re looking 
+forward to seeing you at the expos fair! 
+SWAGAWAY Board per team member
+DELL VENUE 10 per team member
+GOPRO per team member  
+GRAND PRIZE
+FIRST RUNNER UP PRIZE
+CATEGORY PRIZES
+(plus, look out for special sponsor prizes!)
+SCHEDULE
+(presented by Plex)
+MAP
+RULES
+ONE TO FOUR MEMBERS PER TEAM. 
+We’re trying to bulid a community. If you came with a 
+team of 2 or planned to work by yourself, invite some-
+one new!
+NO USING PREVIOUS CODE. 
+If you want to work on a previous project, try making 
+a new feature from scratch. Otherwise, you won’t be 
+able to compete for a prize. We want everyone to be 
+on an even playing field.
+BE KIND TO OTHERS. 
+Harrassment of any kind will not be tolerated. Such 
+behavior will result in explusion from the premises. 
+STAY CLOSE.
+Try to stay within the designated hacking areas! Sci-
+ence Center Halls B, C, and D are reserved for hacking. 
+Feel free to explore, BUT please stay away from the 
+east hallway, west hallway, the computer lab in the 
+basement, and other clearly marked areas.
+TALKS
+VfA: A Fireside Chat with Andrew Yang
+If you like to build things, working at a big tech company isn’t your only 
+option. Venture for America is a fellowship program that places top 
+college graduates in startups for 2 years in emerging U.S. cities to gener-
+ate job growth and train the next generation of entrepreneurs. Join 
+Andrew Yang, Founder & CEO of VFA, HackHarvard to learn how you can 
+make an impact through entrepreneurship, and how recent grads have 
+joined VFA and used their tech skills to launch companies of their own.
+GiveWell: Introduction to GiveWell and Effective Giving
+GiveWell is a nonprofit dedicated to finding outstanding giving opportuni-
+ties and publishing the full details of its analysis to help donors decide 
+where to give. A representative from GiveWellwill walk through how 
+GiveWell uses data and other information to rigorously evaluate charities 
+and programs and recommend the most effective, cost-effective organi-
+zations that it can find.
+WayUp 4pm-5pm Talk: From Hackathon to Series A: The Origin Story of WayUp
+J.J. will talk about the origin of WayUp, describing his and his cofounder's 
+path from meeting through PennApps to founding a company that's 
+raised $9MM and employs 30 people.  Along the way, he'll discuss his 
+personal journey from hacker to entrepreneur and how the skills he 
+developed at hackathons eventually helped him start a company.
+Microsoft: Endless Possibilities with Azure and Kinect
+Come join your local Microsoft Tech Evangelists as they go through the 
+exciting technology behind Microsoft’s Kinect, as well as the many 
+features of Microsoft’s service for development in the cloud, Microsoft 
+Azure! 
+Twitter: Chat with Todd Burner, Developer Advocate
+Todd graduated from Brown in 2009 and then worked at Google in 
+California. After Google he started his own company which eventually led 
+him to Twitter where he helps mobile developers adopt Twitter's tools.
+Todd will be talking about how to build a mobile app using Twitter Kit. 
+With this tool, you can enable authentication and rich content in your app 
+with just a few lines of code.
+API DIRECTORY
+Clarifai: 
+https://developer.clarifai.com/signup/hackharvard2015
+Capital One: 
+http://api.reimaginebanking.com/
+Wolfram: 
+http://products.wolframalpha.com/api/
+Microsoft: 
+https://msdn.microsoft.com/en-us/library/ms123401.aspx
+LiveRamp: TBA
+Facebook: 
+https://developers.facebook.com/docs/apis-and-sdks
+Google: 
+https://developers.google.com/apis-explorer
+Twitter: 
+https://dev.twitter.com/overview/documentation
+Chartbeat: 
+https://chartbeat.com/docs/api/
+Rough Draft Ventures: TBA
+Lani: TBA
+Breather: TBA
+KILO
+PETA
+GIGA
+MEGA
+MICROSOFT
+FACEBOOK
+CAPITAL ONE
+LIVERAMP
+WOLFRAM
+CHARTBEAT
+PLEX
+GOOGLE
+TWITTER
+BREATHER
+LOB
+
