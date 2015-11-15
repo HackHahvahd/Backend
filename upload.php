@@ -31,3 +31,5 @@ if (!empty($_FILES["myFile"])) {
     // set proper permissions on the new file
     chmod(UPLOAD_DIR . $name, 0644);
 }
+
+?>

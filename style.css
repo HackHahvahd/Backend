@@ -1,0 +1,177 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.body-about {
+  background: url(http://proofwerkz.com/wp-content/uploads/2014/03/innovative.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.nav ul {
+	list-style: none;
+	margin: 0 auto;
+	padding: 20px 0;
+	text-align: left;
+}
+
+.nav ul li {
+	display: inline;
+  padding: 0px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.nav ul a:hover {
+  background: #117bff;
+	cursor: pointer;
+	transition: background .5s;
+}
+
+.nav{
+  background-color: black;
+  color: white;
+}
+
+.nav a {
+  padding: 20px;
+  text-decoration: none;
+  background-color: black;
+  color: white;
+}
+
+.header {
+  height: 800px;
+  text-align: center;
+  background: url(http://www.fabuloussavers.com/new_wallpaper/World_Humanitarian_Day2013_freecomputerdesktopwallpaper_1920.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.header .container {
+	position: relative;
+	top: 200px;
+}
+
+.hit-the-floor {
+color: #fff;
+font-size: 12em;
+font-weight: bold;
+font-family: Helvetica;
+text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+}
+
+.header h1 {
+	font-size: 30px;
+	line-height: 100px;
+	margin-top: 0;
+	margin-bottom: 20px;
+  letter-spacing: 8px;
+}
+
+@media (min-width:850px) {
+	.header h1 {
+		font-size: 100px;
+	}
+}
+
+.header h2 {
+	font-weight: 500;
+	letter-spacing: 8px;
+	margin-bottom: 50px;
+	margin-top: 0;
+}
+
+.btn {
+	background: #000000;
+  color: #FFFFFF;
+  padding: 10px 40px;
+  text-decoration: none;
+}
+
+.btn:hover {
+	background: #fff;
+	cursor: pointer;
+	transition: background .5s;
+}
+
+.about {
+  margin: 60px;
+  letter-spacing: 1px;
+}
+
+.container-about {
+  border: 3px solid black;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.footer{
+  background-color: black;
+  color: white;
+  padding: 20px 0;
+}
+
+.footer p {
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.signup {
+  text-align: center;
+  padding: 70px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  background-color: black;
+  opacity: 0.7;
+  height: 70%;
+
+}
+
+.register {
+  background: url(http://www.amusingfun.com/wp-content/uploads/2015/07/vector-art-wallpapers-and-vector-background-8.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#signup-username, #signup-password, #signup-email {
+  position: relative;
+  font-family: "Railway", sans-serif;
+  font-weight: 700;
+  color:#ffffff;
+  width: 250px;
+  height: 30px;
+  background: none;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid white;
+}
+
+#frm1 {
+  position:relative;
+  text-align: center;
+}
+
+.input[type=text] {
+  background: #000000;
+  color: #FFFFFF;
+  padding: 10px 40px;
+  text-decoration: none;
+}
